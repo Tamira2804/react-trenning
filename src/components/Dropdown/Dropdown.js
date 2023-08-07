@@ -22,10 +22,10 @@ class Dropdown extends Component {
           className="Dropdown__toggle"
           onClick={this.toggle}
         >
-          {visible ? 'Скрыть' : 'Показать'}
+          {visible ? 'Приховати' : 'Показати'}
         </button>
 
-        {visible && <div className="Dropdown__menu">Выпадающее меню</div>}
+        {visible && <div className="Dropdown__menu">Випадне меню</div>}
       </div>
     );
   }
