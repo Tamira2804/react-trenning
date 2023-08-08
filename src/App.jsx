@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 // import Dropdown from './Dropdown';
 // import ColorPicker from './ColorPicker';
 import TodoList from './components/TodoList';
-import initialTodos from '. /todos.json';
+import initialTodos from './todos.json';
 
 // const colorPickerOptions = [
 //   { label: 'red', color: '#F44336' },
@@ -43,8 +43,8 @@ class App extends Component {
         {/* <ColorPicker options={colorPickerOptions} /> */}
 
         <div>
-          <p>Общее кол-во: {totalTodoCount}</p>
-          <p>Кол-во выполненных: {completedTodoCount}</p>
+          <p>Загальна кількість: {totalTodoCount}</p>
+          <p>Кількість виконаних: {completedTodoCount}</p>
         </div>
 
         <TodoList todos={todos} onDeleteTodo={this.deleteTodo} />
