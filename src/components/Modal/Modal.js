@@ -26,8 +26,8 @@ export default class Modal extends Component {
   handleBackdropClick = event => {
     // console.log('Кликнули в бекдроп');
 
-    // console.log('currentTarget: ', event.currentTarget);
-    // console.log('target: ', event.target);
+    // console.log('currentTarget: ', event.currentTarget);    там де спливла подія
+    // console.log('target: ', event.target);                  там де клікнули
 
     if (event.currentTarget === event.target) {
       this.props.onClose();
@@ -39,7 +39,7 @@ export default class Modal extends Component {
       <div className="Modal__backdrop" onClick={this.handleBackdropClick}>
         <div className="Modal__content">{this.props.children}</div>
       </div>,
-      modalRoot,
+      modalRoot
     );
   }
 }

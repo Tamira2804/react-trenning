@@ -20,7 +20,10 @@ class App extends Component {
   };
 
   componentDidMount() {
+    //викликається лише раз, коли будується дом дерево
     // console.log('App componentDidMount');
+    //тут ми можемо прочитати щось з локалсторедж при першому завантаженні
+    //тут ми можемо щось забрати, зафетчити з бекенду і засетити початковий стейт від цих даних
 
     const todos = localStorage.getItem('todos');
     const parsedTodos = JSON.parse(todos);
@@ -31,12 +34,18 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    //викликається кожного разу при оновленні
     // console.log('App componentDidUpdate');
+
+    //тут ми можемо записати щось у локал сторедж
+    //тут ми можемо після оновлення щось зробити, записати в локал сторедж, або новий запит на бекенд послати
+    //this.setState() - ніколи не можна тут викликати, оскільки зациклимо компонент
 
     const nextTodos = this.state.todos;
     const prevTodos = prevState.todos;
 
     if (nextTodos !== prevTodos) {
+      //обов'язково якщо робимо сетстейт перевірити це поле, інакше зациклимо компонент
       console.log('Обновилось поле todos, записываю todos в хранилище');
       localStorage.setItem('todos', JSON.stringify(nextTodos));
     }
@@ -103,6 +112,7 @@ class App extends Component {
   };
 
   render() {
+    //this.setState() - ніколи не можна тут викликати, оскільки зациклимо компонент
     const { todos, filter, showModal } = this.state;
     const totalTodoCount = todos.length;
     const completedTodoCount = this.calculateCompletedTodos();
@@ -110,11 +120,14 @@ class App extends Component {
 
     return (
       <Container>
+        {/* <Clock /> */}
+        {/* <Tabs items={tabs} /> */}
+
         <IconButton onClick={this.toggleModal} aria-label="Добавить todo">
           <AddIcon width="40" height="40" fill="#fff" />
         </IconButton>
 
-        {showModal && (
+        {showModal && ( //якщо шоумодал тру, то зарендериться
           <Modal onClose={this.toggleModal}>
             <TodoEditor onSubmit={this.addTodo} />
           </Modal>

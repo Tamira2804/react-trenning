@@ -1,8 +1,18 @@
 # react-18
 
-Два слова про render и commit фазы (почему логи в методе render 2 раза идут)
-Паттерн controlled element Создаем форму регистрации Генерация Id элементов
-формы Множественные радио Множественные чекбоксы. Как делать не надо 1 Как
-делать не надо 2 https://stackblitz.com/edit/react-multiple-checkbox Как делать
-надо Рассказать про SASS_PATH Коллекция заметок: добавление, обновление и
-фильтрация Рассказать про classnames ( пример в колорпикере и выполненное туду)
+- [Жизненный цикл компонент-классов](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
+- Методы жизненного цикла.
+- Сохранение коллекции заметок в localStorage (componentDidMount и
+  componentDidUpdate)
+- Модальное окно (componentDidMount и componentWillUnmount)
+  - Проблема z-index, как решать без костылей (порталы)
+  - Слушатель на keydown для Escape
+  - Слушатель на клик по Backdrop
+- Таймер и утечка памяти с setState() без componentWillUnmount
+- Табы (shouldComponentUpdate)
+  - аналогия с колорпикером = главное знать технику
+  - убираем лишние рендеры после setState
+- Рефакторим заметки
+  - Выносим туду в отдельный компонент
+  - Кнопка-иконка и импорт SVG как ReactComponent
+  - Убираем редактор в модальное окно
