@@ -1,16 +1,12 @@
+import { IconButton } from './IconButton/IconButton';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
+    <div>
       Trenning
+      <IconButton variant="primary" size="lg">
+        Click me
+      </IconButton>
     </div>
   );
 };
